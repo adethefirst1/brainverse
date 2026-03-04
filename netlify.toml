@@ -1,20 +1,12 @@
-[#] Netlify build configuration for Flutter web (BrainVerse puzzle_games)
-[#] Docs: https://docs.netlify.com/build/configure-builds/overview/
+# Netlify build configuration for Flutter web (BrainVerse puzzle_games)
+# Uses netlify-plugin-flutter to install Flutter and build the app.
+
+[[plugins]]
+  package = "netlify-plugin-flutter"
+
+[plugins.inputs]
+  channel = "stable"
 
 [build]
-  # Install Flutter (if not already cached), then build the web app.
-  # Based on community guidance for Flutter + Netlify:
-  # https://dev.to/mubeenmurj/flutter-web-deployment-on-netlify-manual-automated-continuous-2cbl
-  command = "if [ -d \"flutter\" ]; then cd flutter && git pull && cd ..; else git clone https://github.com/flutter/flutter.git; fi; flutter/bin/flutter build web"
+  command = "flutter build web --release"
   publish = "build/web"
-
-[#] Netlify build configuration for Flutter web (BrainVerse puzzle_games)
-[#] Docs: https://docs.netlify.com/build/configure-builds/overview/
-
-[build]
-  # Install Flutter (if not already cached), then build the web app.
-  # Based on community guidance for Flutter + Netlify:
-  # https://dev.to/mubeenmurj/flutter-web-deployment-on-netlify-manual-automated-continuous-2cbl
-  command = "if [ -d \"flutter\" ]; then cd flutter && git pull && cd ..; else git clone https://github.com/flutter/flutter.git; fi; flutter/bin/flutter build web"
-  publish = "build/web"
-
